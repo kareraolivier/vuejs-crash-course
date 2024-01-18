@@ -19,7 +19,7 @@
         id=""
       />
       <button
-        class="rounded-sm p-2 my-2 bg-green-600 text-white w-full"
+        class="rounded-sm p-2 my-2 bg-green-600 hover:bg-green-700 text-white w-full"
         type="button"
       >
         Add expense

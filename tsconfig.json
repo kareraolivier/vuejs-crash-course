@@ -1,0 +1,22 @@
+// {
+//   "compilerOptions": {
+//     "target": "esnext",
+//     "module": "esnext",
+//     "strict": true,
+//     "jsx": "preserve",
+//     "moduleResolution": "node",
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "sourceMap": true,
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["src/*"]
+//     },
+//     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+//     "experimentalDecorators": true,
+//     "allowJs": true,
+//     "skipLibCheck": true
+//   },
+//   "include": ["src/**/*.ts", "src/**/*.vue", "src/**/*.d.ts"],
+//   "exclude": ["node_modules"]
+// }

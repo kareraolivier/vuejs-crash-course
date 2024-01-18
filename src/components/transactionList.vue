@@ -4,7 +4,7 @@
     <div v-for="trans in transactions" :key="trans.id">
       <div class="rounded-sm p-2 my-2 bg-gray-100 w-full flex justify-between">
         <p>{{ trans.title }}</p>
-        <p class="flex items-center gap-1">
+        <p class="flex items-center gap-1 cursor-pointer">
           {{ trans.amount }}$
           <span
             :class="{
@@ -20,9 +20,13 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
-export default {
-  data() {
+import { defineComponent } from "vue";
+import { Transaction } from "./types/interface";
+
+export default defineComponent({
+  data(): { transactions: Transaction[] } {
     return {
       transactions: [
         { id: 1, title: "pen", amount: -300 },
@@ -34,6 +38,5 @@ export default {
       ],
     };
   },
-};
+});
 </script>
-<style lang=""></style>
