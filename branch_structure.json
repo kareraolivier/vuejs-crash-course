@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "ft/creating-routes",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "ft/creating-routes": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "ft/creating-routes",
+    "origin"
+  ]
+}
