@@ -7,11 +7,7 @@
         <p class="flex items-center gap-1 cursor-pointer">
           {{ trans.amount }}$
           <span
-            :class="{
-              'bg-red-600': trans.amount < 0,
-              'bg-green-600': trans.amount > 0,
-              'bg-gray-400': trans.amount === 0,
-            }"
+            :class="trans.amount < 0 ? 'bg-red-600' : 'bg-green-600'"
             class="block w-2 h-2 rounded-md"
           >
           </span>
@@ -21,22 +17,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { Transaction } from "./types/interface";
+<script lang="ts" setup>
+import { defineProps } from "vue";
 
-export default defineComponent({
-  data(): { transactions: Transaction[] } {
-    return {
-      transactions: [
-        { id: 1, title: "pen", amount: -300 },
-        { id: 2, title: "salary", amount: 3000 },
-        { id: 3, title: "food", amount: -200 },
-        { id: 4, title: "banana", amount: -30 },
-        { id: 5, title: "math", amount: 0 },
-        { id: 6, title: "income", amount: 30000 },
-      ],
-    };
+const props = defineProps({
+  transactions: {
+    type: Array,
+    required: true,
   },
 });
 </script>
