@@ -16,7 +16,7 @@
         class="rounded-sm p-2 my-2 bg-gray-100 w-full"
         type="text"
         name="amount"
-        placeholder="If you want to write expense use - like (-23."
+        placeholder="If you want to write expense use '-' like (-23)"
         id="amount"
         v-model="amount"
       />
