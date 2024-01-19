@@ -8,7 +8,7 @@
         class="rounded-sm p-2 my-2 bg-gray-100 w-full"
         type="text"
         name="title"
-        placeholder="Enter text.."
+        placeholder="Enter income or expence.."
         id="title"
         v-model="title"
       />
