@@ -3,9 +3,12 @@
     <div>
       <Header />
       <Balance :total="total" />
-      <IncomeExpence :incomeExpence="[income, expense]" />
+      <IncomeExpence :income="income" :expense="expense" />
       <AddTransaction @TransactionSubmited="handleSubmitedData" />
-      <TransactionList :transactions="transactions" />
+      <TransactionList
+        :transactions="transactions"
+        @TransactionDeleted="handleTransactionDelete"
+      />
     </div>
   </div>
 </template>
@@ -32,23 +35,29 @@ const transactions = ref<Transaction[]>([
 const total = computed(() =>
   transactions.value.reduce((acc, trans) => acc + trans.amount, 0)
 );
-const [income, expense] = [
-  computed(() =>
-    transactions.value.reduce(
-      (acc, trans) => (trans.amount > 0 ? acc + trans.amount : acc),
-      0
-    )
-  ),
-  computed(() =>
-    transactions.value.reduce(
-      (acc, trans) => (trans.amount < 0 ? acc - trans.amount : acc),
-      0
-    )
-  ),
-];
+
+const income = computed(() =>
+  transactions.value.reduce(
+    (acc, trans) => (trans.amount > 0 ? acc + trans.amount : acc),
+    0
+  )
+);
+const expense = computed(() =>
+  transactions.value.reduce(
+    (acc, trans) => (trans.amount < 0 ? acc - trans.amount : acc),
+    0
+  )
+);
+
 const genelateUniqueId = () => Math.floor(Math.random() * 10000);
 const handleSubmitedData = (submitData: any) => {
   transactions.value.unshift({ ...submitData, id: genelateUniqueId() });
   toast.success("transactions completed");
+};
+
+const handleTransactionDelete = (id?: number) => {
+  if (id) alert("do you want to delete this transaction?");
+  transactions.value = transactions.value.filter((trans) => trans.id != id);
+  toast.success("delete completed");
 };
 </script>

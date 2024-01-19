@@ -16,15 +16,13 @@
 import { computed, defineProps } from "vue";
 
 const props = defineProps({
-  incomeExpence: {
-    type: Array,
+  income: {
+    type: Number,
+    required: true,
+  },
+  expense: {
+    type: Number,
     required: true,
   },
 });
-// Destructure the income and expense from the prop
-const incomeExpence = computed(() => {
-  const [income, expense] = props.incomeExpence;
-  return { income, expense };
-});
-const { income, expense } = incomeExpence.value;
 </script>
